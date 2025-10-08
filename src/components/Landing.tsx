@@ -4,157 +4,160 @@ import { Card } from '@/components/ui/card';
 const Landing = () => {
   const features = [
     {
-      title: 'Опросы вовлечённости',
-      description: 'Pulse, Onboarding, Exit — гибкие форматы для всех этапов жизненного цикла сотрудника',
+      title: 'Pulse-опросы',
+      description: 'Короткие еженедельные опросы для мониторинга настроений команды в режиме реального времени',
     },
     {
-      title: 'Глубокая аналитика',
-      description: 'eNPS, индекс вовлечённости, тренды по отделам — всё для принятия решений',
+      title: 'Аналитика вовлечённости',
+      description: 'Глубокая аналитика по командам, отделам и проектам с визуализацией трендов',
     },
     {
-      title: 'Полная анонимность',
-      description: 'Защита данных на уровне GDPR и ФЗ-152. Сотрудники отвечают честно',
+      title: 'Анонимная обратная связь',
+      description: 'Сотрудники делятся мнением честно благодаря гарантированной анонимности',
     },
     {
-      title: 'Простая интеграция',
-      description: 'API, экспорт CSV/PDF, подключение к HR-системам за минуты',
+      title: 'eNPS метрика',
+      description: 'Измерение индекса лояльности сотрудников и готовности рекомендовать компанию',
     },
   ];
 
-  const pricing = [
-    {
-      name: 'Starter',
-      price: '0',
-      period: 'навсегда',
-      features: ['До 50 сотрудников', 'Базовые опросы', 'eNPS метрика', 'Email поддержка'],
-    },
-    {
-      name: 'Professional',
-      price: '49',
-      period: 'за сотрудника/год',
-      features: ['Неограниченно сотрудников', 'Все типы опросов', 'Продвинутая аналитика', 'API доступ', 'Приоритетная поддержка'],
-      highlight: true,
-    },
-    {
-      name: 'Enterprise',
-      price: 'По запросу',
-      period: '',
-      features: ['Кастомная разработка', 'Dedicated поддержка', 'On-premise установка', 'SLA 99.9%'],
-    },
+  const stats = [
+    { value: '89%', label: 'Средний отклик' },
+    { value: '2.5x', label: 'Рост вовлечённости' },
+    { value: '500+', label: 'Компаний' },
   ];
-
-  const clients = ['СБЕР', 'ЯНДЕКС', 'VK', 'OZON', 'АВИТО'];
 
   return (
-    <div className="bg-white">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="max-w-4xl">
-          <h1 className="text-6xl font-bold leading-tight mb-6">
-            Измеряйте вовлечённость.
-            <br />
-            Повышайте продуктивность.
+    <div className="bg-gradient-to-b from-white to-gray-50">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center max-w-3xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            Вовлечённость команды —
+            <span className="text-primary"> под контролем</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl">
-            HR-платформа для опросов персонала с продвинутой аналитикой и защитой данных на уровне банка
+          <p className="text-xl text-muted-foreground mb-10">
+            Платформа для измерения и повышения вовлечённости сотрудников через умные опросы и аналитику
           </p>
-          <div className="flex gap-4">
-            <Button size="lg" className="bg-black text-white hover:bg-gray-800 h-12 px-8">
-              Начать бесплатно
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Button size="lg" className="h-12 px-8">
+              Попробовать бесплатно
             </Button>
-            <Button size="lg" variant="outline" className="border-black text-black hover:bg-gray-50 h-12 px-8">
-              Запросить демо
+            <Button size="lg" variant="outline" className="h-12 px-8">
+              Посмотреть демо
             </Button>
           </div>
         </div>
-      </section>
 
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-sm text-gray-500 mb-8 text-center">Нам доверяют</p>
-          <div className="flex justify-center items-center gap-16 flex-wrap">
-            {clients.map((client) => (
-              <div key={client} className="text-2xl font-bold text-black">
-                {client}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <h2 className="text-4xl font-bold mb-16">Ключевые функции</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {features.map((feature) => (
-            <Card key={feature.title} className="p-8 border-black">
-              <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+        <div className="grid md:grid-cols-3 gap-8 mt-20">
+          {stats.map((stat) => (
+            <Card key={stat.label} className="p-8 text-center">
+              <div className="text-4xl font-bold text-primary mb-2">{stat.value}</div>
+              <div className="text-muted-foreground">{stat.label}</div>
             </Card>
           ))}
         </div>
       </section>
 
-      <section className="bg-gray-50 py-24">
+      <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-4">Как это работает</h2>
-          <p className="text-xl text-gray-600 mb-16">Запуск за 4 простых шага</p>
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Возможности платформы</h2>
+            <p className="text-xl text-muted-foreground">Всё необходимое для работы с вовлечённостью</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {features.map((feature, idx) => (
+              <Card key={idx} className="p-8 hover:shadow-lg transition-shadow">
+                <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-primary rounded-2xl p-12 text-center text-white">
+            <h2 className="text-4xl font-bold mb-4">Как это работает?</h2>
+            <p className="text-xl mb-12 opacity-90">Простой процесс из 3 шагов</p>
+            <div className="grid md:grid-cols-3 gap-12">
+              {[
+                { num: '01', text: 'Создайте опрос за 5 минут' },
+                { num: '02', text: 'Сотрудники отвечают анонимно' },
+                { num: '03', text: 'Получите аналитику и инсайты' },
+              ].map((step) => (
+                <div key={step.num}>
+                  <div className="text-6xl font-bold mb-4 opacity-50">{step.num}</div>
+                  <p className="text-lg">{step.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Тарифы</h2>
+            <p className="text-xl text-muted-foreground">Выберите план для вашей команды</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { step: '01', text: 'Регистрация и настройка аккаунта' },
-              { step: '02', text: 'Импорт списка сотрудников' },
-              { step: '03', text: 'Создание и запуск опроса' },
-              { step: '04', text: 'Анализ результатов и действия' },
-            ].map((item) => (
-              <div key={item.step}>
-                <div className="text-6xl font-bold mb-4">{item.step}</div>
-                <p className="text-lg">{item.text}</p>
-              </div>
+              {
+                name: 'Стартовый',
+                price: '0',
+                period: 'навсегда',
+                features: ['До 30 сотрудников', 'Базовые опросы', 'eNPS', 'Email поддержка'],
+              },
+              {
+                name: 'Профессиональный',
+                price: '990',
+                period: 'в месяц',
+                features: ['До 200 сотрудников', 'Все типы опросов', 'Углублённая аналитика', 'API', 'Приоритетная поддержка'],
+                highlight: true,
+              },
+              {
+                name: 'Корпоративный',
+                price: 'Индивидуально',
+                period: '',
+                features: ['Без ограничений', 'Кастомизация', 'Dedicated менеджер', 'SLA'],
+              },
+            ].map((plan) => (
+              <Card
+                key={plan.name}
+                className={`p-8 ${plan.highlight ? 'border-2 border-primary shadow-lg scale-105' : ''}`}
+              >
+                <h3 className="text-2xl font-bold mb-4">{plan.name}</h3>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold">{plan.price}</span>
+                  {plan.period && <span className="text-muted-foreground ml-2">₽ {plan.period}</span>}
+                </div>
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2">
+                      <span className="text-primary mt-1">✓</span>
+                      <span className="text-muted-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button className={`w-full ${plan.highlight ? '' : 'bg-gray-900 hover:bg-gray-800'}`}>
+                  {plan.price === 'Индивидуально' ? 'Связаться' : 'Начать'}
+                </Button>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <h2 className="text-4xl font-bold mb-16 text-center">Тарифы</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {pricing.map((plan) => (
-            <Card
-              key={plan.name}
-              className={`p-8 ${plan.highlight ? 'border-2 border-black' : 'border-black'}`}
-            >
-              <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-              <div className="mb-6">
-                <span className="text-4xl font-bold">{plan.price}</span>
-                {plan.period && <span className="text-gray-600 ml-2">{plan.period}</span>}
-              </div>
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start">
-                    <span className="mr-3">—</span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button
-                className={`w-full ${
-                  plan.highlight ? 'bg-black text-white hover:bg-gray-800' : 'border-black text-black hover:bg-gray-50'
-                }`}
-                variant={plan.highlight ? 'default' : 'outline'}
-              >
-                Выбрать
-              </Button>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-black text-white py-24">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-5xl font-bold mb-6">Готовы начать?</h2>
-          <p className="text-xl mb-12 text-gray-300">
-            Присоединяйтесь к сотням компаний, которые уже повысили вовлечённость на 40%
+          <h2 className="text-4xl font-bold mb-6">Готовы начать?</h2>
+          <p className="text-xl text-muted-foreground mb-10">
+            Присоединяйтесь к сотням компаний, которые улучшили атмосферу в команде
           </p>
-          <Button size="lg" className="bg-white text-black hover:bg-gray-100 h-12 px-8">
-            Создать аккаунт
+          <Button size="lg" className="h-12 px-8">
+            Создать бесплатный аккаунт
           </Button>
         </div>
       </section>
