@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
+import EmployeeForm from '@/components/EmployeeForm';
+import EmployeeList from '@/components/EmployeeList';
 
 const Dashboard = () => {
+  const [refreshKey, setRefreshKey] = useState(0);
   const metrics = [
     { label: 'Индекс вовлечённости', value: '76', trend: '+8%', color: 'bg-primary' },
     { label: 'eNPS', value: '45', trend: '+12', color: 'bg-green-500' },
@@ -63,6 +67,7 @@ const Dashboard = () => {
           <TabsList className="bg-white border">
             <TabsTrigger value="analytics">Аналитика</TabsTrigger>
             <TabsTrigger value="surveys">Опросы</TabsTrigger>
+            <TabsTrigger value="employees">Сотрудники</TabsTrigger>
             <TabsTrigger value="teams">Команды</TabsTrigger>
             <TabsTrigger value="feedback">Обратная связь</TabsTrigger>
           </TabsList>
@@ -161,6 +166,11 @@ const Dashboard = () => {
                 ))}
               </div>
             </Card>
+          </TabsContent>
+
+          <TabsContent value="employees" className="mt-6 space-y-6">
+            <EmployeeForm onSuccess={() => setRefreshKey(prev => prev + 1)} />
+            <EmployeeList refresh={refreshKey} />
           </TabsContent>
 
           <TabsContent value="teams" className="mt-6">

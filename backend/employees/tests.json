@@ -1,0 +1,32 @@
+{
+  "tests": [
+    {
+      "name": "Get employees list",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "employees": "array"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Create new employee",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "full_name": "Иван Иванов",
+        "email": "ivan@example.com",
+        "department": "Разработка",
+        "position": "Senior Developer",
+        "hire_date": "2024-01-15",
+        "employment_status": "active"
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "employee": "object"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
